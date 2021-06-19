@@ -7,4 +7,5 @@
 4) pyqt5
 
 -> Python knowledge (OOPs Concept) is essential
+
 -> Should know how to use pyqt5 editor
