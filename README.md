@@ -6,6 +6,7 @@
 3) pyttsx3
 4) pyqt5
 
+# Requirements to make own
 -> Python knowledge (OOPs Concept) is essential
 
 -> Should know how to use pyqt5 editor
