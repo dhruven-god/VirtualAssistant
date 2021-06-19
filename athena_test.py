@@ -13,7 +13,14 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.uic import loadUiType
 from athenaUi import Ui_MainWindow
+import wolframalpha
 
+try:
+
+    app = wolframalpha.Client("T3R7U5-7J2H54P2Q2")
+
+except Exception as e:
+    print("Something is wrong")
 
 chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
 
@@ -52,6 +59,9 @@ class MainThread(QThread):
 
     def run(self):
         self.execute()
+
+
+            
 
     def givecommand(self):
         r = sr.Recognizer()
@@ -106,8 +116,7 @@ class MainThread(QThread):
                 speak("Searching.....Please wait")
                 self.query = self.query.replace('search',' ')
                 webbrowser.get(chrome_path).open(f"https://www.google.com/search?q={self.query}")
-                
-            
+
             elif 'open whatsapp' in self.query:
                 speak('Opening whatsapp...')
                 webbrowser.get(chrome_path).open('https://web.whatsapp.com/')
@@ -121,7 +130,7 @@ class MainThread(QThread):
                 mssg = self.query.givecommand()
 
                 def sendMessage():
-                    pywhatkit.sendwhatmsg('+917490044969', mssg, hour, min)
+                    pywhatkit.sendwhatmsg('{Number}', mssg, hour, min)
 
                 sendMessage()
 
